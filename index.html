@@ -1,0 +1,93 @@
+!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAS SIDO HACKEADO</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #000;
+            color: #ff0000;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .hack-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .glitch-text {
+            font-size: 3rem;
+            font-weight: bold;
+            position: relative;
+            color: #ff0000;
+            animation: glitch 1s infinite;
+        }
+
+        .glitch-text::before, .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -2px 0 red;
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch 2s infinite linear alternate-reverse;
+        }
+
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -2px 0 blue;
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch 3s infinite linear alternate-reverse;
+        }
+
+        .sub-text {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #ffffff;
+            opacity: 0.7;
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+            }
+            20% {
+                transform: translate(-2px, 2px);
+            }
+            40% {
+                transform: translate(-2px, -2px);
+            }
+            60% {
+                transform: translate(2px, 2px);
+            }
+            80% {
+                transform: translate(2px, -2px);
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hack-container">
+        <div class="glitch-text" data-text="HAS SIDO HACKEADO">HAS SIDO HACKEADO</div>
+        <div class="sub-text">Tu sistema ha sido comprometido. ¡Adiós a tus datos!</div>
+    </div>
+</body>
+</html>
